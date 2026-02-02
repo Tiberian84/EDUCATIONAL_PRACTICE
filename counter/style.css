@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    
+    /* 🔮 Уникальный киберпанк-градиент */
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    text-align: center;
+    background: rgba(30, 25, 45, 0.85); /* Полупрозрачный тёмный контейнер */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(106, 68, 236, 0.3); /* Лёгкое свечение */
+    max-width: 500px;
+    width: 100%;
+    border: 1px solid rgba(106, 68, 236, 0.3);
+}
+
+.container h1 {
+    color: #fff;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px rgba(106, 68, 236, 0.7);
+}
+
+.counter-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    width: 70px;
+    height: 70px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px; /* Требование ТЗ: 5 пикселей */
+    
+    /* 🔮 Уникальный градиент кнопок: неоново-фиолетовый */
+    background: linear-gradient(135deg, #6a44ec 0%, #a15bff 100%);
+    
+    color: white;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
+                0 0 15px rgba(106, 68, 236, 0.5);
+}
+
+.btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4),
+                0 0 25px rgba(106, 68, 236, 0.8);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.result {
+    width: 110px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.3rem;
+    font-weight: bold;
+    color: #fff;
+    background: #1a162a; /* Тёмная основа для контраста */
+    border: 3px solid #6a44ec;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Цвета фона результата по ТЗ */
+.result.positive {
+    background-color: #ffcc00; /* Жёлтый для положительных */
+    color: #333;
+}
+
+.result.negative {
+    background-color: #00cc66; /* Зелёный для отрицательных */
+    color: #fff;
+}
+
+.result.zero {
+    background-color: #ff3333; /* Красный для нуля */
+    color: #fff;
+    animation: pulse 0.5s;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.message {
+    min-height: 28px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-top: 15px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+}
+
+.message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
