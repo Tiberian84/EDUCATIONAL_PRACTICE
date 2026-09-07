@@ -81,9 +81,11 @@ def update_worker():
     fio = input("Введите ФИО: ")
     for worker in worker_list:
         if worker.fio == fio:
-            worker.position = input("Введите должность: ")
-            worker.salary = int(input("Введите зарплату: "))
-            worker.hire_year = int(input("Введите год найма: "))
+            worker.update(
+                position=input("Введите должность: "),
+                salary=int(input("Введите зарплату: ")),
+                hire_year=int(input("Введите год найма: "))
+            )
             print("\033[92mРаботник изменен\033[0m")
             break
     else:
