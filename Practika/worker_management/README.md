@@ -22,8 +22,18 @@
 
 ## Структура проекта
 
-- `main.py` — точка входа в программу, меню и пользовательский ввод;
-- `worker.py` — класс `Worker` и вспомогательные методы создания объектов.
+```text
+worker_management/
+├── main.py          # точка входа в программу, меню и пользовательский ввод
+├── worker.py        # класс Worker и вспомогательные методы создания объектов
+├── tests/
+│   ├── test_worker.py
+│   └── test_main.py
+└── scrinshots/
+    ├── 01_main_menu.png
+    ├── 02_add_worker.png
+    └── 03_experience_search.png
+```
 
 ## Основные возможности
 
@@ -46,7 +56,7 @@
 1. Перейти в папку проекта:
 
 ```bash
-cd "c:\Data\Разработка ПО\6 семестр\Практика\Практическая работа\Projekt\EDUCATIONAL_PRACTICE\Practika\worker_management"
+cd ".\worker_management"
 ```
 
 2. Запустить программу:
@@ -55,7 +65,34 @@ cd "c:\Data\Разработка ПО\6 семестр\Практика\Прак
 python main.py
 ```
 
+## Тестирование
+
+Запустить тесты можно командой:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+Тесты проверяют:
+
+- создание объектов `Worker`;
+- `@property` и `setter`-ы;
+- метод `update()`;
+- фабричные методы создания работников;
+- поиск работников по стажу в `main.py`.
+
+### Что именно проверяется
+
+- `test_default_constructor` - создаёт пустой объект и проверяет, что значения по умолчанию заданы корректно.
+- `test_constructor_with_values` - проверяет сохранение всех полей при создании объекта с параметрами.
+- `test_factory_methods` - проверяет, что методы `manager()`, `developer()`, `designer()` и `analyst()` создают работников с нужной должностью и зарплатой.
+- `test_update_changes_only_selected_fields` - проверяет частичное обновление, когда меняется только одно поле.
+- `test_update_changes_all_fields` - проверяет полное обновление всех полей объекта.
+- `test_update_uses_validation` - проверяет, что `update()` не пропускает некорректные значения.
+- `test_show_prints_all_data` - проверяет, что метод `show()` выводит всю информацию о сотруднике.
+- `test_fio_setter_rejects_empty_value`, `test_salary_setter_rejects_negative_value`, `test_hire_year_setter_rejects_future_year` - проверяют валидацию в `setter`-ах.
+- `test_show_workers_with_experience` - проверяет поиск сотрудников по стажу в `main.py`.
+
 ## Примечания
 
-- Проект ориентирован на учебное использование.
 - Для корректной работы рекомендуется Python 3.10 или новее.
