@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+data/*.json
+data/*.tmp
+tests/_tmp/
+tests/_tmp_broken/
